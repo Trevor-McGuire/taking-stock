@@ -1,0 +1,59 @@
+
+type StockPrice {
+  close: Float!
+  high: Float!
+  low: Float!
+  tradesCount: Int!
+  open: Float!
+  timestamp: Float!
+  volume: Int!
+  volumeWeightedAverage: Float!
+}
+
+type StockPriceResponse {
+  adjusted: Boolean!
+  nextUrl: String
+  queryCount: Int!
+  requestId: String!
+  results: [StockPrice]!
+  resultsCount: Int!
+  status: String!
+  ticker: String!
+}
+
+input StockPriceDataInput {
+  stocksTicker: String!
+  multiplier: Int!
+  timespan: String!
+  from: String!
+  to: String!
+}
+
+type Query {
+  getStockPriceDataAggregates(input: StockPriceDataInput!): StockPriceAggregatesResponse
+}
+
+type StockPriceAggregatesResponse {
+  ticker: String!
+  queryCount: Int!
+  resultsCount: Int!
+  adjusted: Boolean!
+  results: [StockPrice]!
+  status: String!
+  request_id: String!
+  count: Int!
+}
+
+type StockPrice {
+  v: Int!
+  vw: Float!
+  o: Float!
+  c: Float!
+  h: Float!
+  l: Float!
+  t: Float!
+  n: Int!
+}
+
+
+

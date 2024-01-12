@@ -1,0 +1,30 @@
+type Publisher {
+  name: String
+  homepage_url: String
+  logo_url: String
+  favicon_url: String
+}
+
+type Article {
+  id: ID
+  publisher: Publisher
+  title: String
+  author: String
+  published_utc: String
+  article_url: String
+  tickers: [String]
+  amp_url: String
+  image_url: String
+  description: String
+}
+
+type Query {
+  getArticles(
+    page: Int
+    limit: Int
+    author: String
+    publisherName: String
+    ticker: String
+    published_utc: String
+  ): [Article]
+}

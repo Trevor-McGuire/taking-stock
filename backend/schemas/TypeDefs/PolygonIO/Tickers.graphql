@@ -1,0 +1,43 @@
+
+type Ticker {
+  ticker: String
+  name: String
+  market: String
+  locale: String
+  primary_exchange: String
+  type: String
+  active: Boolean
+  currency_name: String
+  cik: String
+  composite_figi: String
+  share_class_figi: String
+  last_updated_utc: String
+}
+
+type TickerResponse {
+  results: [Ticker]!
+  status: String!
+  request_id: String!
+  count: Int!
+  next_url: String
+}
+
+input TickerInput {
+  type: String
+  market: String
+  exchange: String
+  cusip: String
+  cik: String
+  date: String
+  search: String
+  active: Boolean
+  order: String
+  limit: Int
+  sort: String
+  next_url: String
+}
+
+type Query {
+  getTickers(input: TickerInput): TickerResponse
+}
+

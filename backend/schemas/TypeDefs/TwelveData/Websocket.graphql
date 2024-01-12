@@ -1,0 +1,8 @@
+type Websocket {
+  symbol: String!
+  price: Float!
+}
+
+type Query {
+  getWebsocket: [Websocket]
+}

@@ -1,0 +1,50 @@
+input PaginationInput {
+  page: Int
+  pageSize: Int
+}
+
+type AllTickers {
+  ticker: String
+  name: String
+  market: String
+  locale: String
+  primary_exchange: String
+  type: String
+  active: Boolean
+  currency_name: String
+  cik: String
+  composite_figi: String
+  share_class_figi: String
+  last_updated_utc: String
+  grouped_daily: GroupedDaily
+}
+
+type GroupedDaily {
+  high: Float
+  low: Float
+}
+
+input GroupedDailyFilter {
+  high: Boolean
+  low: Boolean
+}
+
+input TickerFilter {
+  grouped_daily: GroupedDailyFilter
+}
+
+type Query {
+  getAllTickers(pagination: PaginationInput, filter: TickerFilter): AllTickersResponse
+}
+
+type AllTickersResponse {
+  allTickers: [AllTickers]
+  pageInfo: PageInfo
+}
+
+type PageInfo {
+  currentPage: Int
+  pageSize: Int
+  totalItems: Int
+  totalPages: Int
+}
