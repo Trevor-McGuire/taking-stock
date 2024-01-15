@@ -4,9 +4,10 @@ require("dotenv").config();
 const { Ticker, Article } = require("../models");
 
 // Schedule the resolver to run once daily at 12:00 AM
-cron.schedule('0 0 * * *', async () => {
+cron.schedule('0 * * * *', async () => {
   try {
     await getTickersFromDatabase();
+    await fetchPolygonTickerNewsData()
     console.log('Resolver executed successfully');
   } catch (error) {
     console.error('Error executing resolver:', error);
@@ -97,6 +98,6 @@ const fetchPolygonTickerNewsData = async () => {
   }
 };
 
-fetchPolygonTickerNewsData()
+
 
  

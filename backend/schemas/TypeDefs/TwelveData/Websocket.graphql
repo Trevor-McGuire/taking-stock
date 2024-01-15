@@ -1,6 +1,6 @@
 type Websocket {
   symbol: String!
-  price: Float!
+  price: Float
 }
 
 type Query {

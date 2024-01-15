@@ -6,7 +6,8 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Stocks from './pages/Stocks';
 import Stock from './pages/Stock';
-import Tickers from './pages/Tickers.jsx';
+import Tickers from './pages/Tickers/Index.jsx';
+import Ticker from './pages/Ticker/Index.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: 'Tickers',
         element: <Tickers />
+      },
+      {
+        path: 'Ticker/:ticker',
+        element: <Ticker />
       },
       {
         path: '*', // This is a catch-all route

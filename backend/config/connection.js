@@ -8,6 +8,12 @@ if (!process.env.MONGODB_URI) {
   process.exit(1);
 }
 
+process.on('exit', function() {
+  connection.close(function () {
+    console.log('Mongoose default connection disconnected through app termination');
+  });
+});
+
 const connectionString = process.env.MONGODB_URI;
 connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 module.exports = connection;

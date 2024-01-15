@@ -1,4 +1,5 @@
 const Ticker = require("../../../models/Ticker");
+const chalk = require("chalk"); // TD = Red // Polygon = Green // Atlas = Blue // messages = Yellow
 
 const resolvers = {
   Query: {
@@ -29,6 +30,16 @@ const resolvers = {
         // Count total items (assuming you have a 'count' field in your model)
         const totalItems = await Ticker.countDocuments();
 
+        console.log(
+          chalk.blue("atlas query:"),
+          chalk.yellow(
+            'pageination: ' +
+              JSON.stringify(pagination) +
+              ' filter: ' +
+              JSON.stringify(filter)
+          ),
+          
+          )
         return {
           allTickers: allTickers.map((ticker) => {
             const tickerObj = ticker.toObject();

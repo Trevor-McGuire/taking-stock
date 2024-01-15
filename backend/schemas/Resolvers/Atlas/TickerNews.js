@@ -5,7 +5,7 @@ const resolvers = {
     getArticles: async (_, { page = 1, limit = 20, author, publisherName, ticker, published_utc }) => {
       try {
         const skip = (page - 1) * limit;
-
+        console.log(ticker)
         // Build the filter object based on the provided filters
         const filters = {};
         if (author) filters.author = author;

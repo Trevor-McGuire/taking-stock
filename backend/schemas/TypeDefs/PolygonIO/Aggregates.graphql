@@ -30,7 +30,7 @@ input StockPriceDataInput {
 }
 
 type Query {
-  getStockPriceDataAggregates(input: StockPriceDataInput!): StockPriceAggregatesResponse
+  getStockPriceDataAggregates(input: StockPriceDataInput): StockPriceAggregatesResponse
 }
 
 type StockPriceAggregatesResponse {
